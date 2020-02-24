@@ -6,13 +6,14 @@ import com.rabbitmq.client.ConnectionFactory;
 import sun.rmi.runtime.Log;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.concurrent.TimeoutException;
 
 public class Sender {
 
    public static void main(String [] args){
       ConnectionFactory connectionFactory =new ConnectionFactory();
-String message="test Message";
+String message=": \n"+ new Date().toString()+" \t test Message \n";
       try {
          Connection connection = connectionFactory.newConnection();
          Channel channel = connection.createChannel();
